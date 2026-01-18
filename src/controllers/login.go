@@ -12,7 +12,7 @@ import (
 	"net/http"
 )
 
-func Login(w http.ResponseWriter, r *http.Request){
+func Login(w http.ResponseWriter, r *http.Request) {
 	corpoRequisicao, erro := ioutil.ReadAll(r.Body)
 
 	if erro != nil {
@@ -53,5 +53,5 @@ func Login(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	w.Write([]byte("Você está logado! com o token: " + token ))
+	w.Write([]byte("Você está logado! com o token: " + token))
 }

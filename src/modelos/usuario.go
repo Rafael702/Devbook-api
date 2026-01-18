@@ -23,10 +23,10 @@ func (usuario *Usuario) Preparar(etapa string) error {
 		return erro
 	}
 
-	if erro := usuario.formatar(etapa); erro != nil{
+	if erro := usuario.formatar(etapa); erro != nil {
 		return erro
 	}
-	
+
 	return nil
 }
 
@@ -62,7 +62,7 @@ func (usuario *Usuario) formatar(etapa string) error {
 
 		if erro != nil {
 			return erro
-		}	
+		}
 		usuario.Senha = string(senhaComHash)
 	}
 

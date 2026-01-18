@@ -370,7 +370,7 @@ func AtualizarSenha(w http.ResponseWriter, r *http.Request) {
 	defer db.Close()
 
 	repositorio := repositorios.NovoRepositorioUsuarios(db)
-	
+
 	senhaSalvaNoBanco, erro := repositorio.BuscarSenha(usuarioID)
 
 	if erro != nil {

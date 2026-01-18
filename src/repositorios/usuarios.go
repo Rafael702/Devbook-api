@@ -190,7 +190,7 @@ func (repositorio Usuarios) BuscarSeguidores(usuarioID uint64) ([]modelos.Usuari
 	linhas, erro := repositorio.db.Query(`
 		SELECT u.id, u.nome, u.nick, u.email, u.criadoEm
 		FROM usuarios u INNER JOIN seguidores s ON u.id = s.seguidor_id 
-		WHERE s.usuario_id = ?`, 
+		WHERE s.usuario_id = ?`,
 		usuarioID)
 
 	if erro != nil {
@@ -200,7 +200,7 @@ func (repositorio Usuarios) BuscarSeguidores(usuarioID uint64) ([]modelos.Usuari
 	defer linhas.Close()
 
 	var usuarios []modelos.Usuario
-	for linhas.Next(){
+	for linhas.Next() {
 		var usuario modelos.Usuario
 		if erro = linhas.Scan(
 			&usuario.ID,
@@ -221,7 +221,7 @@ func (repositorio Usuarios) BuscarSeguindo(usuarioID uint64) ([]modelos.Usuario,
 	linhas, erro := repositorio.db.Query(`
 		SELECT u.id, u.nome, u.nick, u.email, u.criadoEm
 		FROM usuarios u INNER JOIN seguidores s ON u.id = s.usuario_id 
-		WHERE s.seguidor_id = ?`, 
+		WHERE s.seguidor_id = ?`,
 		usuarioID)
 
 	if erro != nil {
@@ -231,7 +231,7 @@ func (repositorio Usuarios) BuscarSeguindo(usuarioID uint64) ([]modelos.Usuario,
 	defer linhas.Close()
 
 	var usuarios []modelos.Usuario
-	for linhas.Next(){
+	for linhas.Next() {
 		var usuario modelos.Usuario
 		if erro = linhas.Scan(
 			&usuario.ID,
@@ -248,7 +248,7 @@ func (repositorio Usuarios) BuscarSeguindo(usuarioID uint64) ([]modelos.Usuario,
 	return usuarios, nil
 }
 
-func (repositorio Usuarios) BuscarSenha(usuarioID uint64) (string,error) {
+func (repositorio Usuarios) BuscarSenha(usuarioID uint64) (string, error) {
 	linha, erro := repositorio.db.Query("SELECT senha FROM usuarios WHERE id = ?", usuarioID)
 	if erro != nil {
 		return "", erro
