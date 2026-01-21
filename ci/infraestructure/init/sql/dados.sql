@@ -9,3 +9,7 @@ VALUES
 (3,1),
 (1,3);
 
+INSERT INTO publicacoes (titulo, conteudo, autor_id) VALUES
+("Publicacao do usuario 1", "Conteudo da primeira publicacao", 1),
+("Publicacao do usuario 2", "Conteudo da segunda publicacao", 2),
+("Publicacao do usuario 3", "Conteudo da terceira publicacao", 3);
